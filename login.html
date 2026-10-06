@@ -16,38 +16,35 @@
     <input type="hidden" name="popup" value="true">
   </form>
   <script src="/md5.js"></script>
-  <script>
-    function doLogin() {
-      document.sendin.username.value = document.login.username.value;
-      document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
-      document.sendin.submit();
-      return false;
-    }
-  </script>
   $(endif)
 
   <main class="page-shell">
     <section class="card">
       <div class="brand-mark" aria-hidden="true">Wi‑Fi</div>
       <h1>مرحبًا بك</h1>
-      <p class="subtitle">أدخل بيانات الاشتراك للاتصال بالإنترنت</p>
+      <p class="subtitle">أدخل رمز الاشتراك للاتصال بالإنترنت</p>
 
       $(if error)
       <div class="alert" role="alert">$(error)</div>
       $(endif)
 
-      <form name="login" action="$(link-login-only)" method="post" $(if chap-id) onsubmit="return doLogin()" $(endif)>
+      <form name="login" action="$(link-login-only)" method="post" onsubmit="return doLogin()">
+        <input type="hidden" name="username" id="loginUsername">
+        <input type="hidden" name="password" id="loginPassword">
         <input type="hidden" name="dst" value="$(link-orig)">
         <input type="hidden" name="popup" value="true">
 
-        <label for="username">اسم المستخدم</label>
-        <input id="username" name="username" type="text" value="$(username)" autocomplete="username" required autofocus>
-
-        <label for="password">كلمة المرور</label>
-        <div class="password-wrap">
-          <input id="password" name="password" type="password" autocomplete="current-password" required>
-          <button class="ghost-button" type="button" id="togglePassword" aria-label="إظهار كلمة المرور">إظهار</button>
-        </div>
+        <label for="accessCode">رمز الدخول</label>
+        <input
+          id="accessCode"
+          type="text"
+          value="$(username)"
+          autocomplete="off"
+          inputmode="text"
+          placeholder="أدخل رمز الدخول"
+          required
+          autofocus
+        >
 
         <button class="primary-button" type="submit">دخول</button>
       </form>
@@ -56,6 +53,23 @@
     </section>
   </main>
 
-  <script src="app.js"></script>
+  <script>
+    function doLogin() {
+      var code = document.getElementById("accessCode").value.trim();
+      if (!code) return false;
+
+      $(if chap-id)
+      document.sendin.username.value = code;
+      document.sendin.password.value =
+        hexMD5('$(chap-id)' + code + '$(chap-challenge)');
+      document.sendin.submit();
+      return false;
+      $(else)
+      document.getElementById("loginUsername").value = code;
+      document.getElementById("loginPassword").value = code;
+      return true;
+      $(endif)
+    }
+  </script>
 </body>
 </html>
