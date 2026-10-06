@@ -28,6 +28,14 @@
 
       <div class="status-stats">
         <div class="status-stat">
+          <span>نوع الكرت</span>
+          $(if session-time-left)
+          <strong>محدود المدة</strong>
+          $(else)
+          <strong>مفتوح المدة</strong>
+          $(endif)
+        </div>
+        <div class="status-stat">
           <span>مدة الاتصال</span>
           <strong>$(uptime)</strong>
         </div>
