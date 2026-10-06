@@ -3,42 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#07111c">
+  <meta name="theme-color" content="#05070a">
   <title>شبكة مكتب عماد عدن العقاري</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="portal-shell">
-    <section class="glass-panel">
-      <div class="brand-emblem" aria-hidden="true">
-        <div class="crest">⌂</div>
-      </div>
-
-      <h1>شبكة مكتب عماد عدن العقاري</h1>
-      <p class="subtitle">بوابة نقطة الاتصال • جلسة ضيف آمنة</p>
-
-      <form onsubmit="event.preventDefault()">
-        <div class="code-field">
-          <span class="key-icon" aria-hidden="true">⚿</span>
-          <input
-            id="accessCode"
-            type="text"
-            autocomplete="off"
-            inputmode="text"
-            placeholder="رمز الكرت"
-          >
-        </div>
-
-        <button class="primary-button" type="submit">تسجيل الدخول</button>
+  <main class="stage">
+    <section class="reference-ui" aria-label="معاينة بوابة شبكة مكتب عماد عدن العقاري">
+      <form class="hotspot-form" onsubmit="event.preventDefault()">
+        <label class="sr-only" for="accessCode">رمز الكرت</label>
+        <input class="access-code" id="accessCode" type="text" autocomplete="off" inputmode="text" aria-label="رمز الكرت">
+        <button class="login-hitbox" type="submit" aria-label="تسجيل الدخول">
+          <span class="sr-only">تسجيل الدخول</span>
+        </button>
       </form>
-
-      <div class="security-row" aria-hidden="true">
-        <span>♢</span>
-        <span>🔒</span>
-        <span>متصل • شبكة 5G • مؤمّن بتقنية WPA3</span>
-      </div>
-
-      <p class="fine-print">بالضغط على تسجيل الدخول فأنت توافق على الشروط والأحكام</p>
     </section>
   </main>
 </body>
