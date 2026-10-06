@@ -243,3 +243,41 @@ body {
   background: linear-gradient(100deg, rgba(0, 217, 255, .30), rgba(255, 45, 67, .30));
   font: 800 18px Tahoma, Arial, sans-serif;
 }
+
+
+/* Login error help */
+.support-help {
+  position: absolute;
+  z-index: 4;
+  left: 14%;
+  top: 53.2%;
+  min-width: 72px;
+  min-height: 30px;
+  padding: 4px 12px;
+  border: 1px solid rgba(120, 239, 255, .45);
+  border-radius: 999px;
+  background: rgba(4, 14, 22, .78);
+  color: #dff9ff;
+  font: 700 clamp(10px, 2.6vw, 13px) Tahoma, Arial, sans-serif;
+}
+
+.support-panel {
+  position: absolute;
+  z-index: 5;
+  left: 14%;
+  width: 72%;
+  top: 64.2%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(120, 239, 255, .42);
+  background: rgba(3, 10, 17, .92);
+  color: #e7f8ff;
+  text-align: right;
+  line-height: 1.65;
+  font-size: clamp(10px, 2.6vw, 13px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.34);
+}
+
+.support-panel[hidden] {
+  display: none !important;
+}
