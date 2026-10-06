@@ -17,7 +17,7 @@
 /tool fetch url=($baseUrl . "/error.html") mode=https dst-path="hotspot/error.html" keep-result=yes
 
 :log info "Hotspot update: background image"
-/tool fetch url="https://github.com/memo056426-creator/mikrotik-hotspot/raw/refs/heads/main/img/hotspot-bg.jpg" mode=https dst-path="hotspot/hotspot-bg.jpg" keep-result=yes
+/tool fetch url=($baseUrl . "/hotspot-bg.svg") mode=https dst-path="hotspot/hotspot-bg.svg" keep-result=yes
 
 :log info "Hotspot update: style.css"
 /tool fetch url=($baseUrl . "/style.css") mode=https dst-path="hotspot/style.css" keep-result=yes
