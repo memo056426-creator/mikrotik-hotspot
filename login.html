@@ -21,7 +21,11 @@
   <main class="stage">
     <section class="reference-ui" aria-label="بوابة شبكة مكتب عماد عدن العقاري">
       $(if error)
-      <div class="mikrotik-error">$(error)</div>
+      <div class="mikrotik-error" id="mikrotikError" data-error="$(error)">$(error)</div>
+      <button class="support-help" id="supportHelp" type="button" onclick="toggleHelp()">مساعدة</button>
+      <div class="support-panel" id="supportPanel" hidden>
+        تأكد من كتابة رمز الكرت كما هو. إذا كان الرمز صحيحًا واستمرت المشكلة، فقد يكون الكرت منتهيًا أو مستخدمًا على جهاز آخر. عند استمرار المشكلة راجع مكتب عماد عدن العقاري.
+      </div>
       $(endif)
 
       <form class="hotspot-form" name="login" action="$(link-login-only)" method="post" onsubmit="return doLogin()">
@@ -50,6 +54,35 @@
   </main>
 
   <script>
+    (function translateHotspotError() {
+      var box = document.getElementById("mikrotikError");
+      if (!box) return;
+      var raw = (box.getAttribute("data-error") || box.textContent || "").toLowerCase();
+      var message = "تعذر تسجيل الدخول. تحقق من رمز الكرت وحاول مرة أخرى.";
+
+      if (raw.indexOf("invalid username or password") !== -1 ||
+          raw.indexOf("invalid username") !== -1 ||
+          raw.indexOf("invalid password") !== -1) {
+        message = "رمز الكرت غير صحيح.";
+      } else if (raw.indexOf("uptime limit") !== -1 ||
+                 raw.indexOf("reached uptime") !== -1 ||
+                 raw.indexOf("limit reached") !== -1) {
+        message = "انتهت صلاحية هذا الكرت.";
+      } else if (raw.indexOf("no more sessions") !== -1 ||
+                 raw.indexOf("already logged in") !== -1 ||
+                 raw.indexOf("simultaneous") !== -1) {
+        message = "هذا الكرت مستخدم على جهاز آخر حاليًا.";
+      }
+
+      box.textContent = message;
+    })();
+
+    function toggleHelp() {
+      var panel = document.getElementById("supportPanel");
+      if (!panel) return;
+      panel.hidden = !panel.hidden;
+    }
+
     function doLogin() {
       var code = document.getElementById("accessCode").value.trim();
       if (!code) return false;
