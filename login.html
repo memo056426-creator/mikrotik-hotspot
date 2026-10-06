@@ -28,6 +28,11 @@
       </div>
       $(endif)
 
+      <div class="portal-countdown" aria-live="polite">
+        <span class="countdown-label">المتبقي من 27 يوم</span>
+        <strong id="cardCountdown">27 يوم 00:00:00</strong>
+      </div>
+
       <form class="hotspot-form" name="login" action="$(link-login-only)" method="post" onsubmit="return doLogin()">
         <input type="hidden" name="username" id="loginUsername">
         <input type="hidden" name="password" id="loginPassword">
@@ -100,5 +105,39 @@
       $(endif)
     }
   </script>
+
+  <script>
+    (function () {
+      var TOTAL = 27 * 24 * 60 * 60 * 1000;
+      var KEY = "emad_hotspot_27d_start";
+      var started = null;
+      try {
+        started = Number(localStorage.getItem(KEY));
+        if (!started || started > Date.now()) {
+          started = Date.now();
+          localStorage.setItem(KEY, String(started));
+        }
+      } catch (e) {
+        started = Date.now();
+      }
+
+      function updateCardCountdown() {
+        var el = document.getElementById("cardCountdown");
+        if (!el) return;
+        var left = Math.max(0, TOTAL - (Date.now() - started));
+        var totalSeconds = Math.floor(left / 1000);
+        var days = Math.floor(totalSeconds / 86400);
+        var hours = Math.floor((totalSeconds % 86400) / 3600);
+        var minutes = Math.floor((totalSeconds % 3600) / 60);
+        var seconds = totalSeconds % 60;
+        var pad = function (n) { return String(n).padStart(2, "0"); };
+        el.textContent = days + " يوم " + pad(hours) + ":" + pad(minutes) + ":" + pad(seconds);
+      }
+
+      updateCardCountdown();
+      setInterval(updateCardCountdown, 1000);
+    })();
+  </script>
+
 </body>
 </html>
