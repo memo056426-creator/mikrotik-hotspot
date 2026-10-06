@@ -12,10 +12,10 @@ body {
   min-height: 100dvh;
   background-color: #07101d;
   background-image:
-    linear-gradient(rgba(5, 12, 20, .18), rgba(5, 12, 20, .28)),
+    linear-gradient(rgba(5, 12, 20, .04), rgba(5, 12, 20, .08)),
     url("hotspot-bg.png");
   background-repeat: no-repeat;
-  background-position: 33% center;
+  background-position: 62% center;
   background-size: cover;
   background-attachment: fixed;
 }
@@ -179,7 +179,7 @@ input:focus {
 
 @media (max-width: 720px) {
   body {
-    background-position: 31% center;
+    background-position: 64% center;
     background-attachment: scroll;
   }
 
@@ -190,7 +190,7 @@ input:focus {
 
   .card {
     width: min(100%, 390px);
-    background: rgba(7, 16, 29, .82);
+    background: rgba(7, 16, 29, .70);
   }
 }
 
