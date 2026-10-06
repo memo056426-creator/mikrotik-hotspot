@@ -307,23 +307,22 @@ body {
 .portal-countdown {
   position: absolute;
   z-index: 4;
-  left: 50%;
-  top: 53.2%;
-  transform: translateX(-50%);
-  width: auto;
-  min-width: 170px;
-  max-width: 70%;
-  padding: 8px 14px 9px;
-  border-radius: 16px;
-  border: 1px solid rgba(112, 239, 255, .58);
+  left: 5.5%;
+  top: 25.5%;
+  transform: none;
+  width: 31%;
+  min-width: 0;
+  max-width: none;
+  padding: 7px 9px 8px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 72, 88, .88);
   background:
-    linear-gradient(100deg, rgba(0, 221, 255, .12), rgba(255, 45, 67, .10)),
-    rgba(3, 11, 18, .72);
-  -webkit-backdrop-filter: blur(8px) saturate(120%);
-  backdrop-filter: blur(8px) saturate(120%);
+    linear-gradient(135deg, rgba(130, 8, 22, .88), rgba(48, 5, 12, .82));
+  -webkit-backdrop-filter: blur(7px) saturate(125%);
+  backdrop-filter: blur(7px) saturate(125%);
   box-shadow:
-    0 0 16px rgba(0, 221, 255, .12),
-    0 0 18px rgba(255, 45, 67, .08);
+    0 0 16px rgba(255, 35, 58, .30),
+    inset 0 0 0 1px rgba(255,255,255,.04);
   text-align: center;
   pointer-events: none;
 }
@@ -331,9 +330,9 @@ body {
 .countdown-label {
   display: block;
   margin-bottom: 3px;
-  color: #b9dce6;
-  font-size: clamp(9px, 2.2vw, 11px);
-  font-weight: 700;
+  color: #ffb8c0;
+  font-size: clamp(8px, 2vw, 10px);
+  font-weight: 800;
   line-height: 1.2;
 }
 
@@ -342,9 +341,9 @@ body {
   direction: ltr;
   unicode-bidi: isolate;
   color: #ffffff;
-  font-size: clamp(12px, 3.3vw, 16px);
+  font-size: clamp(11px, 3vw, 15px);
   font-weight: 900;
-  letter-spacing: .02em;
+  letter-spacing: .01em;
   line-height: 1.2;
-  text-shadow: 0 0 10px rgba(111, 239, 255, .28);
+  text-shadow: 0 0 10px rgba(255, 55, 72, .42);
 }
