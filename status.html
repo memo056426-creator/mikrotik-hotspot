@@ -4,54 +4,53 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#05070a">
-  <title>حالة الاتصال</title>
+  <title>معلومات الكرت</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="status-stage">
-    <section class="status-card">
-      <div class="status-badge">✓</div>
-      <h1 class="status-title">متصل بالإنترنت</h1>
-      <p class="status-user">مرحبًا $(username)</p>
+  <main class="info-stage">
+    <section class="info-card">
+      <div class="info-check">✓</div>
+      <p class="info-kicker">تم تسجيل الدخول بنجاح</p>
+      <h1 class="info-title">معلومات الكرت</h1>
+      <p class="info-user">رمز الكرت: <strong>$(username)</strong></p>
 
       $(if session-time-left)
-      <div class="time-card">
-        <span class="time-label">مدة الكرت المتبقية</span>
-        <strong class="time-value">$(session-time-left)</strong>
+      <div class="remaining-card">
+        <span>الوقت المتبقي</span>
+        <strong>$(session-time-left)</strong>
       </div>
       $(else)
-      <div class="time-card">
-        <span class="time-label">مدة الكرت</span>
-        <strong class="time-value">غير محددة</strong>
+      <div class="remaining-card">
+        <span>الوقت المتبقي</span>
+        <strong>غير محدد</strong>
       </div>
       $(endif)
 
-      <div class="status-stats">
-        <div class="status-stat">
-          <span>نوع الكرت</span>
-          $(if session-time-left)
-          <strong>محدود المدة</strong>
-          $(else)
-          <strong>مفتوح المدة</strong>
-          $(endif)
-        </div>
-        <div class="status-stat">
-          <span>مدة الاتصال</span>
+      <div class="info-grid">
+        <div class="info-row">
+          <span>مدة الاتصال الحالية</span>
           <strong>$(uptime)</strong>
         </div>
-        <div class="status-stat">
-          <span>تم الاستقبال</span>
+        <div class="info-row">
+          <span>التحميل</span>
           <strong>$(bytes-in-nice)</strong>
         </div>
-        <div class="status-stat">
-          <span>تم الإرسال</span>
+        <div class="info-row">
+          <span>الرفع</span>
           <strong>$(bytes-out-nice)</strong>
+        </div>
+        <div class="info-row">
+          <span>الحالة</span>
+          <strong class="online">متصل</strong>
         </div>
       </div>
 
+      <p class="info-note">يمكنك إغلاق هذه الصفحة والاستمرار في استخدام الإنترنت.</p>
+
       <form action="$(link-logout)" name="logout" method="post">
         <input type="hidden" name="erase-cookie" value="on">
-        <button class="status-logout" type="submit">تسجيل الخروج</button>
+        <button class="info-logout" type="submit">تسجيل الخروج</button>
       </form>
     </section>
   </main>
