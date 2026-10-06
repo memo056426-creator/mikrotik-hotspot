@@ -13,7 +13,7 @@ body {
   background-color: #07101d;
   background-image:
     linear-gradient(rgba(5, 12, 20, .18), rgba(5, 12, 20, .28)),
-    url("hotspot-bg.jpg");
+    url("hotspot-bg.svg");
   background-repeat: no-repeat;
   background-position: 33% center;
   background-size: cover;
