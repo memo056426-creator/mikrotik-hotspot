@@ -126,124 +126,144 @@ body {
 }
 
 
-/* Connection status */
-.status-stage {
+/* Connection information */
+.info-stage {
   min-height: 100dvh;
   display: grid;
   place-items: center;
-  padding: max(28px, env(safe-area-inset-top)) 18px max(28px, env(safe-area-inset-bottom));
+  padding: max(24px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom));
   background:
-    linear-gradient(rgba(2, 8, 13, .48), rgba(2, 8, 13, .68)),
+    linear-gradient(rgba(2,8,13,.40), rgba(2,8,13,.72)),
     url("portal-reference.webp") center/cover no-repeat;
 }
 
-.status-card {
+.info-card {
   width: min(92vw, 430px);
   padding: 28px 22px 24px;
-  border-radius: 30px;
-  border: 1px solid rgba(105, 238, 255, .64);
-  background: rgba(5, 15, 24, .72);
+  border-radius: 32px;
+  border: 1px solid rgba(105,238,255,.66);
+  background: rgba(5,15,24,.76);
   -webkit-backdrop-filter: blur(16px) saturate(120%);
   backdrop-filter: blur(16px) saturate(120%);
   box-shadow:
-    0 0 26px rgba(0, 226, 255, .16),
-    0 0 34px rgba(255, 42, 64, .12),
-    0 28px 70px rgba(0, 0, 0, .42);
+    -8px 0 28px rgba(0,226,255,.16),
+    8px 0 30px rgba(255,42,64,.14),
+    0 28px 70px rgba(0,0,0,.44);
   text-align: center;
 }
 
-.status-badge {
-  width: 64px;
-  height: 64px;
+.info-check {
+  width: 62px;
+  height: 62px;
   display: grid;
   place-items: center;
-  margin: 0 auto 14px;
+  margin: 0 auto 12px;
   border-radius: 50%;
-  color: #03151a;
-  background: #66f0ff;
+  background: #62efff;
+  color: #03161a;
   font-size: 34px;
   font-weight: 900;
-  box-shadow: 0 0 28px rgba(77, 236, 255, .48);
+  box-shadow: 0 0 28px rgba(77,236,255,.48);
 }
 
-.status-title {
+.info-kicker {
+  margin: 0 0 4px;
+  color: #95f3ff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.info-title {
   margin: 0;
+  color: #fff;
   font-size: 30px;
+}
+
+.info-user {
+  margin: 10px 0 20px;
+  color: #cce7ef;
+  font-size: 15px;
+}
+
+.info-user strong {
+  direction: ltr;
+  unicode-bidi: isolate;
   color: #fff;
 }
 
-.status-user {
-  margin: 8px 0 22px;
-  color: #cbe8f3;
-  font-size: 16px;
-}
-
-.time-card {
-  margin-bottom: 18px;
-  padding: 18px 16px;
+.remaining-card {
+  margin: 0 0 18px;
+  padding: 18px 14px;
   border-radius: 22px;
-  border: 1px solid rgba(109, 238, 255, .76);
-  background:
-    linear-gradient(100deg, rgba(0, 223, 255, .13), rgba(255, 45, 67, .12));
-  box-shadow:
-    inset 0 0 18px rgba(255, 255, 255, .03),
-    0 0 18px rgba(0, 220, 255, .13);
+  border: 1px solid rgba(110,239,255,.78);
+  background: linear-gradient(100deg,rgba(0,223,255,.14),rgba(255,45,67,.13));
+  box-shadow: 0 0 20px rgba(0,220,255,.13);
 }
 
-.time-label {
+.remaining-card span {
   display: block;
-  margin-bottom: 8px;
-  color: #d6f6ff;
+  margin-bottom: 7px;
+  color: #d8f8ff;
   font-size: 14px;
 }
 
-.time-value {
+.remaining-card strong {
   display: block;
   direction: ltr;
   color: #fff;
-  font-size: clamp(30px, 9vw, 46px);
+  font-size: clamp(32px,10vw,46px);
   letter-spacing: .02em;
 }
 
-.status-stats {
+.info-grid {
   display: grid;
-  gap: 10px;
+  gap: 9px;
 }
 
-.status-stat {
+.info-row {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   gap: 16px;
   padding: 13px 14px;
   border-radius: 16px;
-  background: rgba(3, 10, 18, .62);
-  border: 1px solid rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(2,10,18,.64);
 }
 
-.status-stat span {
-  color: #aac0cd;
+.info-row span {
+  color: #a9beca;
   font-size: 13px;
 }
 
-.status-stat strong {
-  color: #fff;
+.info-row strong {
   direction: ltr;
   text-align: left;
+  color: #fff;
   font-size: 14px;
 }
 
-.status-logout {
-  width: 100%;
-  min-height: 54px;
-  margin-top: 20px;
-  border: 1px solid rgba(255, 255, 255, .32);
-  border-radius: 999px;
-  color: #fff;
-  background: linear-gradient(100deg, rgba(0, 217, 255, .30), rgba(255, 45, 67, .30));
-  font: 800 18px Tahoma, Arial, sans-serif;
+.info-row .online {
+  color: #72f1c3;
 }
 
+.info-note {
+  margin: 17px 4px 0;
+  color: #9eb4c1;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.info-logout {
+  width: 100%;
+  min-height: 54px;
+  margin-top: 18px;
+  border: 1px solid rgba(255,255,255,.34);
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(100deg,rgba(0,217,255,.30),rgba(255,45,67,.30));
+  font: 800 18px Tahoma,Arial,sans-serif;
+}
 
 /* Login error help */
 .support-help {
