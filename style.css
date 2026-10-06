@@ -10,14 +10,14 @@ html, body { min-height: 100%; margin: 0; }
 
 body {
   min-height: 100dvh;
-  background-color: #07101d;
+  background-color: #f3f1ec;
   background-image:
-    linear-gradient(rgba(5, 12, 20, .04), rgba(5, 12, 20, .08)),
+    linear-gradient(to left, rgba(255, 255, 255, .02), rgba(255, 255, 255, .18)),
     url("hotspot-bg.png");
   background-repeat: no-repeat;
-  background-position: 62% center;
+  background-position: right center;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: scroll;
 }
 
 button, input { font: inherit; }
@@ -25,19 +25,19 @@ button, input { font: inherit; }
 .page-shell {
   min-height: 100dvh;
   display: grid;
-  place-items: center end;
-  padding: max(20px, env(safe-area-inset-top)) clamp(18px, 7vw, 110px) max(20px, env(safe-area-inset-bottom)) 18px;
+  place-items: center start;
+  padding: max(20px, env(safe-area-inset-top)) clamp(18px, 6vw, 90px) max(20px, env(safe-area-inset-bottom)) 18px;
 }
 
 .card {
-  width: min(100%, 420px);
-  border: 1px solid rgba(255, 255, 255, .13);
+  width: min(100%, 390px);
+  border: 1px solid rgba(255, 255, 255, .10);
   border-radius: 24px;
-  padding: 30px 22px;
-  background: rgba(7, 16, 29, .78);
-  -webkit-backdrop-filter: blur(9px);
-  backdrop-filter: blur(9px);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, .34);
+  padding: 28px 20px;
+  background: rgba(6, 14, 26, .58);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .22);
 }
 
 .brand-mark, .error-mark {
@@ -179,18 +179,21 @@ input:focus {
 
 @media (max-width: 720px) {
   body {
-    background-position: 64% center;
+    background-position: 78% center;
+    background-size: cover;
     background-attachment: scroll;
   }
 
   .page-shell {
-    place-items: center;
-    padding: max(18px, env(safe-area-inset-top)) 16px max(18px, env(safe-area-inset-bottom));
+    place-items: center start;
+    padding: max(18px, env(safe-area-inset-top)) 12px max(18px, env(safe-area-inset-bottom));
   }
 
   .card {
-    width: min(100%, 390px);
-    background: rgba(7, 16, 29, .70);
+    width: min(88vw, 350px);
+    background: rgba(6, 14, 26, .52);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
   }
 }
 
