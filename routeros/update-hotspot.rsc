@@ -16,8 +16,8 @@
 :log info "Hotspot update: error.html"
 /tool fetch url=($baseUrl . "/error.html") mode=https dst-path="hotspot/error.html" keep-result=yes
 
-:log info "Hotspot update: background image"
-/tool fetch url=($baseUrl . "/hotspot-bg.svg") mode=https dst-path="hotspot/hotspot-bg.svg" keep-result=yes
+:log info "Hotspot update: exact portal reference image"
+/tool fetch url=($baseUrl . "/portal-reference.webp") mode=https dst-path="hotspot/portal-reference.webp" keep-result=yes
 
 :log info "Hotspot update: style.css"
 /tool fetch url=($baseUrl . "/style.css") mode=https dst-path="hotspot/style.css" keep-result=yes
