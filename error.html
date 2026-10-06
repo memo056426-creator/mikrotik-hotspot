@@ -3,18 +3,45 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#0b1220">
+  <meta name="theme-color" content="#05070a">
   <title>تعذر الاتصال</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="page-shell">
-    <section class="card">
-      <div class="error-mark" aria-hidden="true">!</div>
-      <h1>تعذر إكمال العملية</h1>
-      <div class="alert">$(error)</div>
-      <a class="primary-button link-button" href="$(link-login)">العودة إلى تسجيل الدخول</a>
+  <main class="status-stage">
+    <section class="status-card">
+      <div class="status-badge">!</div>
+      <h1 class="status-title">تعذر إكمال العملية</h1>
+      <div class="alert" id="errorMessage" data-error="$(error)">$(error)</div>
+      <a class="status-logout" href="$(link-login)">العودة إلى تسجيل الدخول</a>
     </section>
   </main>
+
+  <script>
+    (function () {
+      var box = document.getElementById("errorMessage");
+      if (!box) return;
+      var raw = (box.getAttribute("data-error") || box.textContent || "").toLowerCase();
+      var message = "تعذر تسجيل الدخول. تحقق من رمز الكرت وحاول مرة أخرى.";
+
+      if (raw.indexOf("invalid username or password") !== -1 ||
+          raw.indexOf("invalid username") !== -1 ||
+          raw.indexOf("invalid password") !== -1) {
+        message = "رمز الكرت غير صحيح.";
+      } else if (raw.indexOf("uptime limit") !== -1 ||
+                 raw.indexOf("reached uptime") !== -1 ||
+                 raw.indexOf("limit reached") !== -1) {
+        message = "انتهت صلاحية هذا الكرت.";
+      } else if (raw.indexOf("no more sessions") !== -1 ||
+                 raw.indexOf("already logged in") !== -1 ||
+                 raw.indexOf("simultaneous") !== -1 ||
+                 raw.indexOf("used on another device") !== -1 ||
+                 raw.indexOf("مستخدم على جهاز آخر") !== -1) {
+        message = "انتظر دقيقة واحدة ثم حاول تسجيل الدخول مرة أخرى.";
+      }
+
+      box.textContent = message;
+    })();
+  </script>
 </body>
 </html>
